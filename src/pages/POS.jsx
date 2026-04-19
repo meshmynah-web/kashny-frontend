@@ -118,9 +118,9 @@ export default function POS() {
     });
 
     return (
-        <div style={{ display: 'flex', height: '100%', animation: 'fadeIn 0.5s' }}>
-            <div style={{ flex: 1, minWidth: 0, padding: '1.5rem', display: 'flex', flexDirection: 'column', backgroundColor: 'var(--bg-main)' }}>
-                <div style={{ display: 'flex', gap: '1rem', marginBottom: '1.5rem' }}>
+        <div className="pos-layout" style={{ animation: 'fadeIn 0.5s' }}>
+            <div className="pos-main" style={{ backgroundColor: 'var(--bg-main)' }}>
+                <div className="pos-header-actions">
                     <div className="glass-panel" style={{ flex: 2, display: 'flex', alignItems: 'center', padding: '0 1rem' }}>
                         <Search className="text-muted" size={20} />
                         <input type="text" placeholder="Search product by name or barcode..."
@@ -149,7 +149,7 @@ export default function POS() {
                 </div>
 
                 <div style={{ flex: 1, overflowY: 'auto' }}>
-                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(180px, 1fr))', gap: '1rem' }}>
+                    <div className="product-grid">
                         {filteredProducts.map(p => (
                             <div key={p.product_id} onClick={() => addToCart(p)} className="glass-panel" style={{ cursor: 'pointer', transition: 'transform 0.2s', padding: '1rem', display: 'flex', flexDirection: 'column', gap: '0.5rem' }} onMouseOver={e => e.currentTarget.style.transform = 'scale(1.02)'} onMouseOut={e => e.currentTarget.style.transform = 'scale(1)'}>
                                 <div style={{ height: '120px', background: 'rgba(255,255,255,0.05)', borderRadius: '8px', display: 'flex', alignItems: 'center', justifyContent: 'center', overflow: 'hidden' }}>
@@ -166,7 +166,7 @@ export default function POS() {
                 </div>
             </div>
 
-            <div className="glass-panel" style={{ width: '380px', borderRadius: 0, display: 'flex', flexDirection: 'column', borderLeft: '1px solid rgba(255,255,255,0.1)' }}>
+            <div className="glass-panel pos-sidebar">
                 {shiftInfo ? (
                     <div style={{ padding: '1rem', background: 'rgba(16, 185, 129, 0.1)', borderBottom: '1px solid rgba(255,255,255,0.1)', display: 'flex', flexDirection: 'column', gap: '4px' }}>
                         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
