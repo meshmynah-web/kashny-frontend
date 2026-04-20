@@ -25,14 +25,15 @@ export default function CheckoutModal({ cart, total, discount, customerId, onClo
     const receiptRef = useRef();
 
     useEffect(() => {
-        if (paymentComplete && receiptData && !autoPrinted) {
-            const timer = setTimeout(() => {
-                printThermal();
-                setAutoPrinted(true);
-            }, 500);
-            return () => clearTimeout(timer);
-        }
-    }, [paymentComplete, receiptData, autoPrinted]);
+    if (paymentComplete && receiptData && !autoPrinted) {
+        const timer = setTimeout(() => {
+            window.electron.invoke('print-receipt');
+            setAutoPrinted(true);
+        }, 500);
+
+        return () => clearTimeout(timer);
+    }
+}, [paymentComplete, receiptData, autoPrinted]);
 
     const fetchReceiptData = async (saleId) => {
         try {
