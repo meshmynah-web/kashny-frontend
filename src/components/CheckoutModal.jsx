@@ -6,6 +6,7 @@ import { OfflineContext } from '../context/OfflineContext';
 import html2pdf from 'html2pdf.js';
 import { printThermalReceipt } from '../utils/receiptTemplate';
 import ReceiptPreview from './ReceiptPreview';
+import { isElectron } from '../utils/isElectron';
 
 export default function CheckoutModal({ cart, total, discount, customerId, onClose, onComplete }) {
     const { isOnline, saveOfflineSale } = useContext(OfflineContext);
@@ -27,7 +28,7 @@ export default function CheckoutModal({ cart, total, discount, customerId, onClo
     useEffect(() => {
     if (paymentComplete && receiptData && !autoPrinted) {
         const timer = setTimeout(() => {
-            if (window.electron) {
+           if (isElectron()) {
                 window.electron.printReceipt();
             }
             setAutoPrinted(true);
