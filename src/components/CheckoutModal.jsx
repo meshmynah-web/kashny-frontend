@@ -27,7 +27,7 @@ export default function CheckoutModal({ cart, total, discount, customerId, onClo
     useEffect(() => {
     if (paymentComplete && receiptData && !autoPrinted) {
         const timer = setTimeout(() => {
-            window.electron.invoke('print-receipt');
+            window.electron.printReceipt();
             setAutoPrinted(true);
         }, 500);
 
