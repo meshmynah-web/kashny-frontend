@@ -12,7 +12,7 @@ export default function Login() {
   const [remember, setRemember] = useState(false);
   const [loading, setLoading] = useState(false);
   const { login } = useContext(AuthContext);
-  const [brand, setBrand] = useState({ store_name: 'AutoPOS', store_logo: null });
+  const [brand, setBrand] = useState({ store_name: 'MeshPOS', store_logo: null });
 
   // Reset password states
   const [showForgotModal, setShowForgotModal] = useState(false);
