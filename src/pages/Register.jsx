@@ -101,7 +101,7 @@ export default function Register() {
                 <label className="form-label">Email Address (for verification)</label>
                 <div className="input-wrapper">
                   <Mail className="input-icon" size={20} />
-                  <input type="email" className="form-input" required placeholder="admin@autopos.com"
+                  <input type="email" className="form-input" required placeholder="admin@meshpos.com"
                     value={formData.email} onChange={(e) => setFormData({...formData, email: e.target.value})} />
                 </div>
               </div>
