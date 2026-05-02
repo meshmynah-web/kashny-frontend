@@ -13,7 +13,7 @@ export default function Register() {
   const [loading, setLoading] = useState(false);
   const { registerRequest, register } = useContext(AuthContext);
   const navigate = useNavigate();
-  const [brand, setBrand] = useState({ store_name: 'AutoPOS', store_logo: null });
+  const [brand, setBrand] = useState({ store_name: 'MeshPOS', store_logo: null });
 
   useEffect(() => {
     axios.get('/api/settings').then(res => {
